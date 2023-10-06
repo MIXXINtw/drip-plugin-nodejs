@@ -56,33 +56,33 @@
 
   // 排除異常數據
   // 若累積集資金額低於上一個數據的0.8，則將該筆數據的累積集資人數及金額改為上一個數據的累積集資人數及金額
-  let cleanTimeline = []
-  for (let i = 0; i < timeline?.length; i++) {
-    if (i == 0) {
-      cleanTimeline.push(timeline[i]);
-    } else {
-      const cumeFunds = timeline[i][2];
-      const lastCumeBackers =
-        cleanTimeline[cleanTimeline.length - 1][1];
-      const lastCumeFunds =
-        cleanTimeline[cleanTimeline.length - 1][2];
-      if (cumeFunds > lastCumeFunds * 0.8) {
-        cleanTimeline.push(timeline[i]);
-      } else {
-        let newTimeline = timeline[i];
-        newTimeline[1] = lastCumeBackers;
-        newTimeline[2] = lastCumeFunds;
-        cleanTimeline.push(newTimeline);
-      }
-    }
-  }
+  // let cleanTimeline = []
+  // for (let i = 0; i < timeline?.length; i++) {
+  //  if (i == 0) {
+  //    cleanTimeline.push(timeline[i]);
+  //  } else {
+  //    const cumeFunds = timeline[i][2];
+  //    const lastCumeBackers =
+  //      cleanTimeline[cleanTimeline.length - 1][1];
+  //    const lastCumeFunds =
+  //      cleanTimeline[cleanTimeline.length - 1][2];
+  //    if (cumeFunds > lastCumeFunds * 0.8) {
+  //      cleanTimeline.push(timeline[i]);
+  //    } else {
+  //      let newTimeline = timeline[i];
+  //      newTimeline[1] = lastCumeBackers;
+  //      newTimeline[2] = lastCumeFunds;
+  //      cleanTimeline.push(newTimeline);
+  //    }
+  //  }
+  //}
 
   // 因為匯款部分有時間差，現在已經結束的專案，後來新爬了一筆最新的數字
   // 取得最後一筆更新數據
-  const lastData = cleanTimeLine[cleanTimeLine.length - 1]
+  const lastData = timeline[timeline.length - 1]
 
   const dataMart = {}
-  cleanTimeLine.map(data => {
+  timeline.map(data => {
     if (data[0] < projectStartAt || data[0] > projectFinishAt) return
 
     const date = moment(new Date(data[0] * 1000)).format('YYYY/MM/DD')
