@@ -27,16 +27,16 @@ app.set('view engine', 'handlebars')
 
 app.use('/', require('./routes/index'))
 
-new CronJob(
-  '0 0 0,6,12,18 * * *',
-  function () {
-    Project.checkCrawlerStatus()
-  },
-  null,
-  true,
-  'Asia/Taipei'
-)
-Project.checkCrawlerStatus()
+// new CronJob(
+//   '0 0 0,6,12,18 * * *',
+//   function () {
+//     Project.checkCrawlerStatus()
+//   },
+//   null,
+//   true,
+//   'Asia/Taipei'
+// )
+// Project.checkCrawlerStatus()
 
 app.listen(port, () => {
   console.log(`Express listening on port ${port}`)

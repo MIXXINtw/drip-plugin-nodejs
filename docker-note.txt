@@ -1,0 +1,8 @@
+[本地部署]
+docker-compose -f docker-compose.yml up --build --force-recreate
+
+[DOCKER BUILD AND 將 IMAGE 部署到 GCP]
+#建立IMAGE
+docker build -t asia.gcr.io/m-lab-366114/drip-plugin-backend:240115-w1 --platform linux/amd64 .
+#推上去GCP
+docker push asia.gcr.io/m-lab-366114/drip-plugin-backend:240115-w1

@@ -21,7 +21,8 @@
     "mysql2": "^2.2.5",
     "node-jsencrypt": "^1.0.0",
     "request": "^2.88.2",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+    "sqlstring": "^2.3.3"
   },
   "devDependencies": {
     "cz-conventional-changelog": "^3.1.0",

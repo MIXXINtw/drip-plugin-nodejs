@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  app:
+    image: drip-plugin-backend
+    build:
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    ports:
+      - 3000:3000
